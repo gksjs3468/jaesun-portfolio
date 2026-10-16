@@ -79,7 +79,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               key="mes-jogwang"
-              className="editorial-card p-6 sm:p-8 rounded-3xl project-card"
+              id="project-mes-jogwang"
+              className="editorial-card p-6 sm:p-8 rounded-3xl project-card scroll-mt-24"
             >
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 pb-4 border-b border-[var(--border-subtle)]">
                 <div>
@@ -190,7 +191,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               key="mes-agent"
-              className="editorial-card p-6 sm:p-8 rounded-3xl project-card"
+              id="project-mes-agent"
+              className="editorial-card p-6 sm:p-8 rounded-3xl project-card scroll-mt-24"
             >
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 pb-4 border-b border-[var(--border-subtle)]">
                 <div>
@@ -294,7 +296,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               key="enterprise-mpomr"
-              className="editorial-card p-6 sm:p-8 rounded-3xl project-card"
+              id="project-enterprise-mpomr"
+              className="editorial-card p-6 sm:p-8 rounded-3xl project-card scroll-mt-24"
             >
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 pb-4 border-b border-[var(--border-subtle)]">
                 <div>

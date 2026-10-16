@@ -263,12 +263,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {/* 1. Rockwell Automation -> 조광페인트 MES / 설비 I/F */}
+              {/* 1. Rockwell Automation -> 조광페인트 MES 프로젝트 */}
               <button
                 type="button"
-                onClick={() => scrollToTarget('career-8pin')}
+                onClick={() => scrollToTarget('project-mes-jogwang')}
                 className="group p-5 rounded-2xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition-all duration-200 flex flex-col justify-between shadow-xs hover:shadow-md cursor-pointer text-left w-full"
-                title="클릭하여 에잇핀 & 로크웰 PLC 연동 경력으로 이동"
+                title="클릭하여 조광페인트 MES & 로크웰 PLC 연동 프로젝트로 이동"
               >
                 <div className="w-full h-20 sm:h-22 rounded-xl bg-white p-3 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/2019_Logo_rgb_RA_Bug-LeftText_color.svg" alt="로크웰 오토메이션 로고" className="max-h-9 sm:max-h-10 w-auto max-w-[75%] object-contain" />
@@ -286,12 +286,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
                 </div>
               </button>
 
-              {/* 2. FactoryTalk -> 조광페인트 MES */}
+              {/* 2. FactoryTalk -> 조광페인트 MES 프로젝트 */}
               <button
                 type="button"
-                onClick={() => scrollToTarget('career-8pin')}
+                onClick={() => scrollToTarget('project-mes-jogwang')}
                 className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full"
-                title="클릭하여 에잇핀 & FactoryTalk MES 경력으로 이동"
+                title="클릭하여 FactoryTalk MES 연계 프로젝트로 이동"
               >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-3 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/2019_Logo_FactoryTalk_rgb.svg" alt="FactoryTalk 로고" className="max-h-12 w-auto max-w-[88%] object-contain" />
@@ -309,12 +309,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
                 </div>
               </button>
 
-              {/* 3. SK telecom -> 모바일파크 SKT 운영 경력 */}
+              {/* 3. SK telecom -> SKT 대규모 웹 문자 시스템 프로젝트 */}
               <button
                 type="button"
-                onClick={() => scrollToTarget('career-mobilepark')}
+                onClick={() => scrollToTarget('project-enterprise-mpomr')}
                 className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full"
-                title="클릭하여 모바일파크 SKT 개발·운영 경력으로 이동"
+                title="클릭하여 SKT T-world 웹 문자 발송 시스템 프로젝트로 이동"
               >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-1 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform overflow-hidden">
                   <img src="/sk_telecom_logo.png" alt="SK telecom 로고" className="h-full w-auto max-h-[92%] max-w-[95%] object-contain scale-140 sm:scale-150" />
@@ -332,12 +332,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
                 </div>
               </button>
 
-              {/* 4. 조광페인트 -> 에잇핀 조광페인트 MES 경력 */}
+              {/* 4. 조광페인트 -> 조광페인트 MES 프로젝트 */}
               <button
                 type="button"
-                onClick={() => scrollToTarget('career-8pin')}
+                onClick={() => scrollToTarget('project-mes-jogwang')}
                 className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full"
-                title="클릭하여 조광페인트 MES 생산 파트 경력으로 이동"
+                title="클릭하여 조광페인트 스마트팩토리 MES 생산관리 구축 프로젝트로 이동"
               >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-3 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/ci_ko.png" alt="조광페인트 로고" className="max-h-12 w-auto max-w-[88%] object-contain" />
@@ -355,12 +355,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
                 </div>
               </button>
 
-              {/* 5. 에잇핀 (8PIN) -> 에잇핀 경력 카드 */}
+              {/* 5. 에잇핀 (8PIN) -> i-MOS V2 AX 고도화 & 8pin-print-agent 프로젝트 */}
               <button
                 type="button"
-                onClick={() => scrollToTarget('career-8pin')}
+                onClick={() => scrollToTarget('project-mes-agent')}
                 className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full ring-1 ring-[var(--accent-border)]/50"
-                title="클릭하여 에잇핀 재직 경력 상세로 이동"
+                title="클릭하여 에잇핀 i-MOS V2 AX 플랫폼 및 인쇄 에이전트 프로젝트로 이동"
               >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-2.5 sm:p-3 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/logo-C41093Bk.webp" alt="에잇핀 (8PIN) 로고" className="max-h-11 sm:max-h-13 w-auto max-w-[88%] object-contain" />
@@ -378,12 +378,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
                 </div>
               </button>
 
-              {/* 6. 모바일파크 -> 모바일파크 경력 카드 */}
+              {/* 6. 모바일파크 -> SKT 대규모 웹 문자 시스템 프로젝트 */}
               <button
                 type="button"
-                onClick={() => scrollToTarget('career-mobilepark')}
+                onClick={() => scrollToTarget('project-enterprise-mpomr')}
                 className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full"
-                title="클릭하여 모바일파크 경력 상세로 이동"
+                title="클릭하여 모바일파크 수행 SKT 엔터프라이즈 프로젝트로 이동"
               >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-2 sm:p-2.5 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/mobilepark_logo3.png" alt="모바일파크 로고" className="max-h-12 sm:max-h-14 w-auto max-w-[90%] object-contain" />
