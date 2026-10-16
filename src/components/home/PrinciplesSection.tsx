@@ -87,7 +87,7 @@ export const PrinciplesSection: React.FC = () => {
         coreMindset:
           '네트워크 단절, 장비 전원 꺼짐, 외부 I/O 지연을 기본 상태로 가정하고 모든 입출력에 재시도와 로컬 격리 버퍼를 둡니다.',
         fieldCase:
-          '8pin-print-agent 독립 구현 시, 로컬 SQLite 임시 큐와 지수 백오프 자동 재전송 루틴을 구축하여 현장 네트워크 단절 시에도 인쇄 누락 0건 달성.',
+          '프린트 에이전트 개발 시, 로컬 SQLite 임시 큐와 지수 백오프 자동 재전송 루틴을 구축하여 현장 네트워크 단절 시에도 인쇄 누락 0건 달성.',
         checklist: [
           '모든 외부 호출에 타임아웃 및 서킷 브레이커 적용',
           '장애 시 로컬 디스크/SQLite 큐에 안전 보관 후 자동 싱크',
@@ -167,8 +167,8 @@ export const PrinciplesSection: React.FC = () => {
         <span className="text-[var(--accent)] font-semibold ml-1">상단의 단어 탭을 클릭하면 해당 철학의 실무 사례와 검증 수칙이 즉시 표시됩니다.</span>
       </p>
 
-      {/* 1줄 단어 탭 바 (Horizontal 1-Line Keyword Buttons) */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5 sm:gap-2 mb-3.5">
+      {/* 5-Column Principle Selector Bar */}
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-4">
         {principles.map((item) => {
           const isSelected = selectedId === item.id;
           const Icon = item.icon;
@@ -178,140 +178,133 @@ export const PrinciplesSection: React.FC = () => {
               key={item.id}
               type="button"
               onClick={() => setSelectedId(item.id)}
-              className={`py-2 px-2.5 sm:py-2.5 sm:px-3 rounded-xl border transition-all duration-200 cursor-pointer flex flex-col items-center justify-center text-center gap-1 group relative overflow-hidden ${
+              className={`p-3 rounded-xl border text-left transition-all duration-150 cursor-pointer flex flex-col justify-between gap-1.5 ${
                 isSelected
-                  ? 'border-[var(--accent)] bg-[var(--accent)] text-white shadow-sm scale-[1.01]'
-                  : 'border-[var(--border-subtle)] bg-[var(--bg-card)] hover:border-[var(--accent-border)] hover:bg-[var(--bg-muted)] text-[var(--text-heading)]'
+                  ? 'border-[var(--accent)] bg-[var(--accent-subtle)] shadow-xs ring-1 ring-[var(--accent)]'
+                  : 'border-[var(--border-subtle)] bg-[var(--bg-card)] hover:border-[var(--border-strong)] hover:bg-[var(--bg-muted)]/50'
               }`}
             >
-              {/* Top Badge: Number & Icon */}
-              <div className="flex items-center gap-1">
-                <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-[var(--accent)]'}`} />
-                <span className={`font-mono text-[11px] font-black ${isSelected ? 'text-white/90' : 'text-[var(--accent)]'}`}>
+              <div className="flex items-center justify-between gap-1 w-full">
+                <span className={`font-mono text-xs font-bold ${isSelected ? 'text-[var(--accent)]' : 'text-[var(--text-muted)]'}`}>
                   {item.num}
                 </span>
+                <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-[var(--accent)]' : 'text-[var(--text-muted)]'}`} />
               </div>
 
-              {/* Core Word / Short Title (한눈에 꽂히는 단어) */}
-              <span className={`text-xs sm:text-sm font-black leading-tight ${isSelected ? 'text-white' : 'text-[var(--text-heading)]'}`}>
-                {item.shortTitle}
-              </span>
-
-              {/* Sub Keyword Pill */}
-              <span
-                className={`text-[9px] font-semibold px-1.5 py-0.2 rounded ${
-                  isSelected
-                    ? 'bg-white/20 text-white'
-                    : 'bg-[var(--bg-muted)] text-[var(--text-muted)]'
-                }`}
-              >
-                {item.keyword}
-              </span>
+              <div>
+                <div className={`text-xs sm:text-sm font-extrabold tracking-tight leading-snug ${isSelected ? 'text-[var(--text-heading)]' : 'text-[var(--text-heading)]'}`}>
+                  {item.shortTitle}
+                </div>
+                <div className="text-[10px] text-[var(--text-muted)] font-medium mt-0.5 truncate">
+                  {item.keyword}
+                </div>
+              </div>
             </button>
           );
         })}
       </div>
 
-      {/* 단어 탭을 눌렀을 때 부드럽게 전환되는 상세 카드 뷰 (Detail Card View) */}
+      {/* Selected Principle Detail Canvas */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentPrinciple.id}
-          initial={{ opacity: 0, y: 6 }}
+          initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -6 }}
-          transition={{ duration: 0.18 }}
-          className="editorial-card p-5 sm:p-6 rounded-2xl border border-[var(--accent-border)] bg-[var(--bg-card)] shadow-sm"
+          exit={{ opacity: 0, y: -4 }}
+          transition={{ duration: 0.15 }}
+          className="editorial-card rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-card)] shadow-xs overflow-hidden"
         >
-          {/* Card Top Title & Slogan */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3.5 border-b border-[var(--border-subtle)]">
-            <div className="flex items-start sm:items-center gap-3">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[var(--accent)] text-white flex items-center justify-center shrink-0 shadow-2xs">
-                <CurrentIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
+          {/* Header Bar */}
+          <div className="p-4 sm:p-5 border-b border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[var(--bg-muted)]/20">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[var(--bg-muted)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--accent)] shrink-0">
+                <CurrentIcon className="w-5 h-5" />
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-0.5">
                   <span className="font-mono text-xs font-bold text-[var(--accent)]">
                     PRINCIPLE {currentPrinciple.num}
                   </span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded status-badge font-bold">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-muted)] text-[var(--text-muted)] border border-[var(--border-subtle)] font-semibold">
                     {currentPrinciple.keyword}
                   </span>
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-black text-[var(--text-heading)]">
+                <h3 className="text-base sm:text-lg font-black text-[var(--text-heading)] tracking-tight">
                   {currentPrinciple.fullTitle}
                 </h3>
               </div>
             </div>
 
-            <div className="text-left sm:text-right">
-              <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg inline-block">
+            {/* Verified Result Pill */}
+            <div className="self-start sm:self-auto">
+              <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                 {currentPrinciple.detail.metric}
               </span>
             </div>
           </div>
 
-          {/* Core One-Liner Quote */}
-          <div className="my-3.5 p-3 sm:p-3.5 rounded-xl bg-[var(--accent-subtle)] border border-[var(--accent-border)]">
-            <p className="text-xs sm:text-sm md:text-base font-bold text-[var(--text-heading)] leading-snug flex items-center gap-1.5">
-              <span className="text-[var(--accent)] font-mono text-base sm:text-lg">“</span>
-              <span>{currentPrinciple.oneLiner}</span>
-              <span className="text-[var(--accent)] font-mono text-base sm:text-lg">”</span>
+          {/* Core Quote One-Liner */}
+          <div className="px-4 sm:px-6 py-3.5 bg-[var(--accent-subtle)]/50 border-b border-[var(--border-subtle)]">
+            <p className="text-xs sm:text-sm font-bold text-[var(--text-heading)] leading-relaxed">
+              <span className="text-[var(--accent)] mr-1.5 font-black">“</span>
+              {currentPrinciple.oneLiner}
+              <span className="text-[var(--accent)] ml-1 font-black">”</span>
             </p>
           </div>
 
-          {/* Details 2-Column Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 text-xs sm:text-sm">
-            {/* Left: 철학 배경 & 실무 적용 사례 (7 cols) */}
-            <div className="md:col-span-7 space-y-3">
+          {/* Body: 2 Clean Balanced Panels */}
+          <div className="p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-5">
+            {/* Left Column: Core Mindset & Field Case (7 cols) */}
+            <div className="lg:col-span-7 space-y-4">
               <div>
-                <h4 className="font-bold text-[var(--text-heading)] mb-1.5 flex items-center gap-1.5">
+                <div className="flex items-center gap-2 mb-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-                  <span>엔지니어링 철학 배경</span>
-                </h4>
-                <p className="text-[var(--text-body)] leading-relaxed bg-[var(--bg-muted)]/50 p-3 sm:p-3.5 rounded-xl border border-[var(--border-subtle)]">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    엔지니어링 철학 배경
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-[13px] text-[var(--text-body)] font-medium leading-relaxed bg-[var(--bg-muted)]/40 p-3.5 rounded-xl border border-[var(--border-subtle)]">
                   {currentPrinciple.detail.coreMindset}
                 </p>
               </div>
 
               <div>
-                <h4 className="font-bold text-[var(--text-heading)] mb-1.5 flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5 text-blue-500" />
-                  <span>실무 프로젝트 적용 사례</span>
-                </h4>
-                <p className="text-[var(--text-body)] leading-relaxed bg-[var(--bg-muted)]/50 p-3 sm:p-3.5 rounded-xl border border-[var(--border-subtle)] font-medium">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <Layers className="w-3.5 h-3.5 text-[var(--accent)]" />
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    실무 프로젝트 적용 사례
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-[13px] text-[var(--text-body)] font-medium leading-relaxed bg-[var(--bg-muted)]/40 p-3.5 rounded-xl border border-[var(--border-subtle)]">
                   {currentPrinciple.detail.fieldCase}
                 </p>
               </div>
             </div>
 
-            {/* Right: 실천 수칙 & 체크리스트 (5 cols) */}
-            <div className="md:col-span-5 flex flex-col justify-between gap-3">
+            {/* Right Column: SOP Checklist (5 cols) */}
+            <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
-                <h4 className="font-bold text-[var(--text-heading)] mb-1.5 flex items-center gap-1.5">
+                <div className="flex items-center gap-2 mb-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>실천 수칙 (Standard Operating Procedure)</span>
-                </h4>
-                <ul className="space-y-2 bg-[var(--bg-muted)]/50 p-3 sm:p-3.5 rounded-xl border border-[var(--border-subtle)]">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                    실무 실천 수칙 (SOP)
+                  </h4>
+                </div>
+                <div className="space-y-2 bg-[var(--bg-muted)]/40 p-3.5 rounded-xl border border-[var(--border-subtle)]">
                   {currentPrinciple.detail.checklist.map((check, idx) => (
-                    <li key={idx} className="flex items-start gap-1.5 text-[var(--text-body)]">
-                      <span className="accent-text font-bold shrink-0">✓</span>
-                      <span className="leading-snug">{check}</span>
-                    </li>
+                    <div key={idx} className="flex items-start gap-2 text-xs sm:text-[13px] text-[var(--text-body)]">
+                      <span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+                      <span className="leading-snug font-medium">{check}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
 
-              {/* Proven Result Box */}
-              <div className="p-3 sm:p-3.5 rounded-xl bg-[var(--bg-muted)] border border-[var(--border-subtle)] flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                <div>
-                  <div className="text-[9px] uppercase font-mono font-bold text-[var(--text-muted)]">
-                    VERIFIED RESULT
-                  </div>
-                  <div className="text-xs sm:text-sm font-black text-[var(--text-heading)] mt-0.5">
-                    {currentPrinciple.detail.metric}
-                  </div>
-                </div>
+              {/* Bottom Verification Note */}
+              <div className="mt-4 p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-between text-[11px] text-[var(--text-muted)]">
+                <span className="font-mono">VERIFIED METRIC</span>
+                <span className="font-bold text-[var(--text-heading)]">{currentPrinciple.detail.metric}</span>
               </div>
             </div>
           </div>
