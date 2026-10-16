@@ -1,4 +1,6 @@
 import React from 'react';
+import { Terminal } from 'lucide-react';
+import { LiveDeveloperTerminal } from './LiveDeveloperTerminal';
 
 export const QASection: React.FC = () => {
   return (
@@ -7,13 +9,32 @@ export const QASection: React.FC = () => {
         <div className="flex items-center gap-2.5">
           <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent)]" />
           <h2 className="text-lg sm:text-xl font-black text-[var(--text-heading)]">
-            엔지니어링 노트: 현장과 시스템을 대하는 태도
+            채용 인터랙티브 Q&A & 엔지니어링 노트
           </h2>
           <span className="text-xs font-mono font-bold text-[var(--accent)] px-2 py-0.5 rounded-md bg-[var(--accent-subtle)] border border-[var(--accent-border)] hidden sm:inline">
-            07 / ENGINEERING NOTES
+            07 / RECRUITER Q&A & NOTES
           </span>
         </div>
-        <span className="text-xs font-mono text-[var(--text-muted)] font-semibold">Field Mindset • Reliability • Automation</span>
+        <span className="text-xs font-mono text-[var(--text-muted)] font-semibold">Interactive CLI Console • Field Mindset</span>
+      </div>
+
+      {/* Interactive Developer CLI Terminal */}
+      <div className="mb-8">
+        <div className="flex items-center justify-between mb-2.5">
+          <div className="flex items-center gap-2">
+            <Terminal className="w-4 h-4 text-[var(--accent)]" />
+            <span className="text-xs font-bold text-[var(--text-heading)]">
+              라이브 커리어 & 채용 인터랙티브 콘솔
+            </span>
+            <span className="text-[11px] text-[var(--text-muted)] hidden sm:inline">
+              — 상단 질문 칩을 클릭하거나 직접 터미널에 궁금한 점을 입력해 보세요.
+            </span>
+          </div>
+          <span className="text-[10px] font-mono text-[var(--text-muted)] bg-[var(--bg-muted)] px-2 py-0.5 rounded border border-[var(--border-subtle)]">
+            Live Terminal
+          </span>
+        </div>
+        <LiveDeveloperTerminal />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">

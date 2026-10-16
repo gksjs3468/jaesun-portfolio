@@ -106,7 +106,7 @@ export const App: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.28 }}
-              className="pt-15"
+              className="pt-16 sm:pt-20"
             >
               <HeroSection
                 onOpenContact={() => setIsContactOpen(true)}
