@@ -64,7 +64,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
                 : 'border border-[var(--border-subtle)] hover:bg-[var(--bg-muted)] text-[var(--text-muted)]'
             }`}
           >
-            UI & 플랫폼
+            모바일파크 & 웹 플랫폼
           </button>
         </div>
       </div>
@@ -209,10 +209,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
                     </span>
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-[var(--text-heading)]">
-                    i-MOS V2 AX 플랫폼 고도화 및 인쇄 에이전트 개발·운영
+                    i-MOS V2 AX 플랫폼 고도화 및 프린트 에이전트·무선 센서 파이프라인 개발·운영
                   </h3>
                   <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
-                    공통 UI/UX 리팩토링, KPI 레포트 버그 수정, 8pin-print-agent 구현 및 현장 운영 대응·추가 기능 지속 개발
+                    공통 UI/UX 리팩토링, KPI 레포트 버그 수정, 프린트 에이전트 개발, Zigbee·블루투스(BLE) 무선 센서 연동 및 Node-RED 기반 실시간 수집 파이프라인 구축
                   </p>
                 </div>
                 <div className="text-left sm:text-right shrink-0 mt-1 sm:mt-0 flex flex-col items-start sm:items-end gap-1">
@@ -220,7 +220,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
                     2025.08 ~ 현재 (운영 및 추가 개발 중)
                   </span>
                   <span className="text-[11px] text-[var(--text-muted)] font-semibold whitespace-nowrap">
-                    인쇄 장애 제로화 & 안정 운영 중
+                    인쇄 장애 제로화 & IoT 파이프라인 안정 운영
                   </span>
                   {/* Deep-dive Link Button */}
                   <button
@@ -249,7 +249,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
                     <li className="flex items-start gap-2">
                       <span className="text-slate-400 font-bold shrink-0">•</span>
                       <span>
-                        <strong>8pin-print-agent 자체 구현</strong>: Python 기반 `smart_collector` 및 통신 트랜스미터 모듈을 설계하여 현장 라벨 인쇄 파이프라인 무중단 지원
+                        <strong>프린트 에이전트 개발</strong>: Python 기반 `smart_collector` 및 통신 트랜스미터 모듈을 설계하여 현장 라벨 인쇄 파이프라인 무중단 지원
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-slate-400 font-bold shrink-0">•</span>
+                      <span>
+                        <strong>Zigbee·블루투스 센서 & Node-RED 연동</strong>: 현장 온습도 및 진동 무선 센서들을 Zigbee/BLE로 연결하고 Node-RED를 활용해 MES 실시간 모니터링 데이터 파이프라인 구축
                       </span>
                     </li>
                   </ul>
@@ -264,7 +270,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
                     <li className="flex items-start gap-2">
                       <span className="accent-text font-bold shrink-0">✓</span>
                       <span>
-                        <strong>인쇄 대기열 유실 원천 차단</strong>: 네트워크 지연 시에도 로컬 SQLite/JSON 큐에 안전 백업 후 순차 재전송되는 루틴을 확립하여 인쇄 누락 방지
+                        <strong>인쇄 대기열 유실 원천 차단</strong>: 네트워크 지연 시에도 로컬 SQLite/JSON 큐에 안전 백업 후 순차 재전송되는 루틴을 확립하여 인쇄 누락 0건 방어
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="accent-text font-bold shrink-0">✓</span>
+                      <span>
+                        <strong>센서 데이터 실시간 가시화</strong>: 무선 센서 패킷을 Node-RED로 정제하여 상위 MES 대시보드와 지연 없이 연계
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -280,9 +292,12 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
               <div className="mt-4 pt-3.5 border-t border-[var(--border-subtle)] flex flex-wrap items-center gap-1.5">
                 <span className="text-xs text-[var(--text-muted)] mr-1">Skills:</span>
                 <span className="tech-tag">Python</span>
+                <span className="tech-tag">Node-RED</span>
+                <span className="tech-tag">Zigbee</span>
+                <span className="tech-tag">Bluetooth (BLE)</span>
+                <span className="tech-tag">SQLite</span>
                 <span className="tech-tag">Java Spring Boot</span>
                 <span className="tech-tag">JavaScript</span>
-                <span className="tech-tag">PyQt</span>
                 <span className="tech-tag">SQL</span>
               </div>
             </motion.div>
@@ -303,7 +318,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <span className="px-2 py-0.5 rounded text-[11px] status-badge font-semibold">
-                      SKT T-world 웹 문자 발송 시스템 (3년 5개월 장기 운영)
+                      SKT T-world 웹 문자 발송 시스템 (3.9년 장기 운영)
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[var(--bg-muted)] border border-[var(--border-subtle)]">
                       <span className="h-4.5 w-auto bg-white px-1 py-0.5 rounded flex items-center justify-center border border-slate-200 shrink-0">
@@ -319,12 +334,12 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
                     SKT T-world 웹 문자 발송 시스템(MPOMR) 신규 기능 개발 및 장기 운영
                   </h3>
                   <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
-                    SKT 가입자 대상 대규모 웹 문자(SMS/LMS/MMS) 발송 시스템의 신규 기능 개발, 대용량 발송 큐 관리, Oracle 쿼리 최적화 및 3.5년 무장애 운영
+                    SKT 가입자 대상 대규모 웹 문자(SMS/LMS/MMS) 발송 시스템의 신규 기능 개발, 대용량 발송 큐 관리, Oracle 쿼리 최적화 및 3.9년 무장애 운영
                   </p>
                 </div>
                 <div className="text-left sm:text-right shrink-0 mt-1 sm:mt-0 flex flex-col items-start sm:items-end gap-1">
                   <span className="text-xs font-medium text-[var(--text-heading)] whitespace-nowrap">
-                    2020.02 ~ 2023.06
+                    2019.09 ~ 2023.06
                   </span>
                   <span className="text-[11px] text-[var(--text-muted)] font-semibold whitespace-nowrap">
                     신규 개발 & 무사고 장기 운영
@@ -375,7 +390,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
                     <li className="flex items-start gap-2">
                       <span className="accent-text font-bold shrink-0">✓</span>
                       <span>
-                        <strong>3년 5개월간 무사고 운영</strong>: 통신사 기준의 엄격한 보안 가이드라인 준수, 심야 긴급 점검 및 장애 신속 조치 체계 확립
+                        <strong>3.9년간 무사고 장기 운영</strong>: 통신사 기준의 엄격한 보안 가이드라인 준수, 심야 긴급 점검 및 장애 신속 조치 체계 확립
                       </span>
                     </li>
                   </ul>
@@ -503,52 +518,78 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) 
             >
               <div className="editorial-card p-5 sm:p-6 rounded-3xl flex flex-col justify-between project-card">
                 <div>
-                  <div className="text-xs text-[var(--text-muted)] mb-1">에어톡 • 2021.06 ~ 2021.12</div>
+                  <div className="flex items-center justify-between gap-1 mb-2">
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[var(--bg-muted)] border border-[var(--border-subtle)]">
+                      <span className="h-4 w-auto bg-white px-1 py-0.5 rounded flex items-center justify-center border border-slate-200 shrink-0">
+                        <img src="/mobilepark_logo3.png" alt="모바일파크" className="h-2 w-auto object-contain" />
+                      </span>
+                      <span className="text-[11px] font-semibold text-[var(--text-muted)]">모바일파크</span>
+                    </span>
+                    <span className="text-xs text-[var(--text-muted)] font-medium">2021.06 ~ 2021.12</span>
+                  </div>
                   <h4 className="text-sm sm:text-base font-bold text-[var(--text-heading)] mb-1.5">
-                    Airtalk 커뮤니케이션 서비스
+                    Airtalk 실시간 커뮤니케이션
                   </h4>
                   <p className="text-xs text-[var(--text-body)] leading-relaxed mb-3">
-                    Vue.js 기반 프론트엔드 UI 컴포넌트 개발 및 Java RESTful API 연동. 실시간 메시지 송수신 기능 구축.
+                    Vue.js 기반 프론트엔드 모듈식 UI 컴포넌트 개발 및 Java RESTful API 연동. 실시간 메시지 송수신 기능 구축 및 MariaDB 최적화.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1 pt-2.5 border-t border-[var(--border-subtle)]">
                   <span className="tech-tag text-[10px]">Vue.js</span>
                   <span className="tech-tag text-[10px]">Java</span>
                   <span className="tech-tag text-[10px]">MariaDB</span>
+                  <span className="tech-tag text-[10px]">REST API</span>
                 </div>
               </div>
 
               <div className="editorial-card p-5 sm:p-6 rounded-3xl flex flex-col justify-between project-card">
                 <div>
-                  <div className="text-xs text-[var(--text-muted)] mb-1">프리몰드 • 2021.07 ~ 2021.12</div>
+                  <div className="flex items-center justify-between gap-1 mb-2">
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[var(--bg-muted)] border border-[var(--border-subtle)]">
+                      <span className="h-4 w-auto bg-white px-1 py-0.5 rounded flex items-center justify-center border border-slate-200 shrink-0">
+                        <img src="/mobilepark_logo3.png" alt="모바일파크" className="h-2 w-auto object-contain" />
+                      </span>
+                      <span className="text-[11px] font-semibold text-[var(--text-muted)]">모바일파크</span>
+                    </span>
+                    <span className="text-xs text-[var(--text-muted)] font-medium">2021.07 ~ 2021.12</span>
+                  </div>
                   <h4 className="text-sm sm:text-base font-bold text-[var(--text-heading)] mb-1.5">
-                    프리몰드 플랫폼 고도화
+                    프리몰드 제조 플랫폼 웹 고도화
                   </h4>
                   <p className="text-xs text-[var(--text-body)] leading-relaxed mb-3">
-                    레거시 시스템을 React 기반 반응형 UI로 개선 검토 및 jQuery/Bootstrap4 리뉴얼 작업 수행.
+                    제조 레거시 웹 시스템을 React 기반 반응형 UI로 개선 검토 및 jQuery/Bootstrap4 기반 UI 리뉴얼, 사용자 입력 동선 축소.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1 pt-2.5 border-t border-[var(--border-subtle)]">
                   <span className="tech-tag text-[10px]">React</span>
                   <span className="tech-tag text-[10px]">Java</span>
                   <span className="tech-tag text-[10px]">MySQL</span>
+                  <span className="tech-tag text-[10px]">Bootstrap4</span>
                 </div>
               </div>
 
               <div className="editorial-card p-5 sm:p-6 rounded-3xl flex flex-col justify-between project-card">
                 <div>
-                  <div className="text-xs text-[var(--text-muted)] mb-1">블루가 • 2023.01 ~ 2023.06</div>
+                  <div className="flex items-center justify-between gap-1 mb-2">
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[var(--bg-muted)] border border-[var(--border-subtle)]">
+                      <span className="h-4 w-auto bg-white px-1 py-0.5 rounded flex items-center justify-center border border-slate-200 shrink-0">
+                        <img src="/mobilepark_logo3.png" alt="모바일파크" className="h-2 w-auto object-contain" />
+                      </span>
+                      <span className="text-[11px] font-semibold text-[var(--text-muted)]">모바일파크</span>
+                    </span>
+                    <span className="text-xs text-[var(--text-muted)] font-medium">2023.01 ~ 2023.06</span>
+                  </div>
                   <h4 className="text-sm sm:text-base font-bold text-[var(--text-heading)] mb-1.5">
-                    아이들나라 모바일 미니게임
+                    아이들나라 인터랙티브 미니게임
                   </h4>
                   <p className="text-xs text-[var(--text-body)] leading-relaxed mb-3">
-                    안드로이드 임베디드 웹 환경 키즈 타겟 인터랙티브 미니게임의 JavaScript 화면 인터랙션 개발.
+                    안드로이드 앱 임베디드 웹뷰(Webview) 키즈 타겟 인터랙티브 미니게임 개발. HTML5 Canvas & 순수 JavaScript 애니메이션 구현.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1 pt-2.5 border-t border-[var(--border-subtle)]">
                   <span className="tech-tag text-[10px]">JavaScript</span>
-                  <span className="tech-tag text-[10px]">HTML5</span>
-                  <span className="tech-tag text-[10px]">Android</span>
+                  <span className="tech-tag text-[10px]">HTML5 Canvas</span>
+                  <span className="tech-tag text-[10px]">Android Webview</span>
                 </div>
               </div>
             </motion.div>
