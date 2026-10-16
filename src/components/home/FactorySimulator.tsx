@@ -25,7 +25,7 @@ export const FactorySimulator: React.FC = () => {
     { id: 'L1', name: 'Line 1: 원료 분산/교반', role: '고점도 도료 믹싱', status: 'RUNNING', temp: 42.1, rpm: 1250, progress: 68 },
     { id: 'L2', name: 'Line 2: 반제품 반응조', role: 'Tank Mapping 자동화', status: 'RUNNING', temp: 65.4, rpm: 840, progress: 84 },
     { id: 'L3', name: 'Line 3: 자동 충진/포장', role: 'PLC 터치 POP 연동', status: 'RUNNING', temp: 24.2, rpm: 0, progress: 42 },
-    { id: 'L4', name: 'Agent: 8pin-print-agent', role: 'ZPL 바코드 라벨 인쇄', status: 'RUNNING', temp: 31.0, rpm: 0, progress: 91 },
+    { id: 'L4', name: 'Agent: 프린트 에이전트', role: 'ZPL 바코드 라벨 인쇄', status: 'RUNNING', temp: 31.0, rpm: 0, progress: 91 },
   ]);
 
   // 실시간 계측값 시뮬레이션
@@ -72,7 +72,7 @@ export const FactorySimulator: React.FC = () => {
     if (nextState) {
       setLogs(prev => [
         { id: Date.now(), time: now, text: '⚠️ [장애 시뮬레이션] 상위 ERP/MES 네트워크 링크 일시 단절 감지!', type: 'warn' },
-        { id: Date.now() + 1, time: now, text: '📦 8pin-print-agent: SQLite 로컬 FIFO 큐 적재 모드로 무중단 자동 전환', type: 'info' },
+        { id: Date.now() + 1, time: now, text: '📦 프린트 에이전트: SQLite 로컬 FIFO 큐 적재 모드로 무중단 자동 전환', type: 'info' },
         ...prev.slice(0, 4)
       ]);
     } else {
@@ -104,7 +104,7 @@ export const FactorySimulator: React.FC = () => {
               </span>
             </div>
             <p className="text-xs text-[var(--text-muted)] mt-0.5">
-              조광페인트 MES 및 8pin-print-agent의 실시간 가동 로직을 웹 인터랙션으로 재현한 라이브 데모입니다.
+              조광페인트 MES 및 프린트 에이전트의 실시간 가동 로직을 웹 인터랙션으로 재현한 라이브 데모입니다.
             </p>
           </div>
         </div>

@@ -102,14 +102,18 @@ export const SkillsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* DevOps & Ops */}
+        {/* DevOps & IoT */}
         <div className="editorial-card p-5 sm:p-6 rounded-3xl hover:border-[var(--accent-border)] transition-all duration-200 flex flex-col justify-between">
           <div>
             <div className="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase mb-3 flex items-center gap-1.5">
               <Settings className="w-3.5 h-3.5 shrink-0 text-slate-400" />
-              <span>DevOps & Ops</span>
+              <span>DevOps & IoT</span>
             </div>
             <ul className="space-y-2.5 text-xs">
+              <li className="pb-2 border-b border-[var(--border-subtle)]">
+                <div className="font-bold text-[var(--text-heading)] flex justify-between">Node-RED & IoT <span>센서 파이프라인</span></div>
+                <p className="text-[var(--text-muted)] mt-0.5">Zigbee·블루투스(BLE) 무선 센서 데이터 수집 및 연계</p>
+              </li>
               <li className="pb-2 border-b border-[var(--border-subtle)]">
                 <div className="font-bold text-[var(--text-heading)] flex justify-between">n8n Workflow <span>전사 구축</span></div>
                 <p className="text-[var(--text-muted)] mt-0.5">컨테이너 구축 및 업무 파이프라인 자동화</p>
@@ -118,13 +122,9 @@ export const SkillsSection: React.FC = () => {
                 <div className="font-bold text-[var(--text-heading)] flex justify-between">Jenkins CI/CD <span>배포 자동화</span></div>
                 <p className="text-[var(--text-muted)] mt-0.5">무중단 릴리즈 파이프라인 운영</p>
               </li>
-              <li className="pb-2 border-b border-[var(--border-subtle)]">
+              <li>
                 <div className="font-bold text-[var(--text-heading)] flex justify-between">Docker & Linux <span>인프라</span></div>
                 <p className="text-[var(--text-muted)] mt-0.5">컨테이너 환경 격리 및 서버 세팅</p>
-              </li>
-              <li>
-                <div className="font-bold text-[var(--text-heading)] flex justify-between">Git / C-Shell <span>형상 & 배치</span></div>
-                <p className="text-[var(--text-muted)] mt-0.5">브랜치 전략, 자동화 쉘 스크립트 작성</p>
               </li>
             </ul>
           </div>

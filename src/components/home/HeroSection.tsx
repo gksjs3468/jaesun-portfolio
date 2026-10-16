@@ -525,7 +525,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavig
                     <span className="text-[10px] px-1.5 py-0.5 rounded status-badge font-semibold shrink-0">재직 중</span>
                   </div>
                   <p className="text-[11px] text-[var(--text-muted)] mt-1 leading-relaxed">
-                    i-MOS MES 솔루션 고도화 및 8pin-print-agent 인쇄 큐 독립 개발
+                    i-MOS MES 고도화, 프린트 에이전트 개발 및 Zigbee·BLE 무선 센서/Node-RED 파이프라인 구축
                   </p>
                 </div>
               </button>
