@@ -1,182 +1,173 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { ClaudeLogo, OpenAILogo, GeminiLogo, N8nLogo } from '../common/AILogos';
+import { Zap, ShieldCheck, Cpu } from 'lucide-react';
 
 export const AICompetencySection: React.FC = () => {
+  const aiTools = [
+    {
+      name: 'Claude',
+      company: 'Anthropic',
+      role: '코드 아키텍처 & 리팩토링',
+      logo: ClaudeLogo,
+      badge: 'Code Specialist',
+      oneLiner: '복잡한 레거시 코드를 결합도 낮은 모듈형 아키텍처로 정밀 재설계',
+      points: [
+        'Spring Boot & React 대규모 소스 코드의 다중 파일 리팩토링',
+        '컴포넌트 분리 및 불필요한 의존성 제거로 유지보수성 극대화',
+        'RESTful API 스펙 및 클라이언트-서버 페이로드 사전 정합성 검증'
+      ],
+      tag: '#클린코드 #대규모리팩토링 #아키텍처'
+    },
+    {
+      name: 'ChatGPT',
+      company: 'OpenAI',
+      role: '심층 추론 & SQL 최적화',
+      logo: OpenAILogo,
+      badge: 'Deep Reasoning',
+      oneLiner: '제조 공정 비즈니스 로직 알고리즘화 및 대용량 DB 쿼리 튜닝',
+      points: [
+        'Tank Mapping, 가동 시간 등 복잡한 화학공정 예외 규칙 알고리즘 모델링',
+        'Oracle / MySQL 대용량 발송 이력 쿼리 실행 계획(Explain Plan) 정밀 튜닝',
+        '통신 단절, 경계값 등 엣지 케이스 단위 테스트(JUnit) 시나리오 사전 도출'
+      ],
+      tag: '#DB쿼리튜닝 #비즈니스로직 #엣지테스트'
+    },
+    {
+      name: 'Gemini',
+      company: 'Google',
+      role: '초대용량 문맥 & 도면 분석',
+      logo: GeminiLogo,
+      badge: 'Long Context',
+      oneLiner: '수십 장의 설비 사양서(PDF) 및 프로젝트 전수 코드베이스 분석',
+      points: [
+        '프로젝트 전수 소스파일을 한 번에 주입하여 전체 아키텍처 의존관계 파악',
+        'PDF 설비 사양서 및 PLC 통신 프로토콜 문서에서 인터페이스 스펙 자동 추출',
+        '사내 기술 동향 및 주간 R&D 리포트 요약 파이프라인 연계'
+      ],
+      tag: '#초대용량문맥 #설비사양서분석 #멀티모달'
+    },
+    {
+      name: 'n8n',
+      company: 'Self-Hosted n8n',
+      role: '전사 업무 자동화 파이프라인',
+      logo: N8nLogo,
+      badge: 'Zero-Fail Auto',
+      oneLiner: '사내 반복 업무를 제로화하는 전사 이벤트 트리거 자동화 구축',
+      points: [
+        '사내 n8n 도커 컨테이너 구축 및 팀별 자동화 웹훅(Webhook) 엔드포인트 개설',
+        'AI 요약 API와 메신저/이메일을 결합한 주간 테크 리포트 무인 발행',
+        '반복적인 수기 데이터 수집 작업을 백그라운드 스케줄러로 100% 자동화'
+      ],
+      tag: '#n8n컨테이너 #사내자동화 #생산성3배'
+    }
+  ];
+
   return (
-    <section id="ai-competency" className="relative">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 pb-2 border-b border-[var(--border-subtle)]">
+    <section id="ai-competency" className="relative scroll-mt-24">
+      {/* Section Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 pb-2.5 border-b border-[var(--border-subtle)]">
         <div className="flex items-center gap-2.5">
           <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent)]" />
           <h2 className="text-lg sm:text-xl font-black text-[var(--text-heading)]">
-            AI 활용 역량: 특성별 멀티 LLM 실무 활용 전략
+            AI 실무 활용 역량: 적재적소 멀티 LLM 협업
           </h2>
           <span className="text-xs font-mono font-bold text-[var(--accent)] px-2 py-0.5 rounded-md bg-[var(--accent-subtle)] border border-[var(--accent-border)] hidden sm:inline">
-            06 / AI STRATEGY
+            06 / AI WORKFLOW
           </span>
         </div>
-        <span className="text-xs font-mono text-[var(--text-muted)] font-semibold">Claude • OpenAI • Gemini • n8n</span>
+        <span className="text-xs font-mono text-[var(--text-muted)] font-semibold flex items-center gap-1.5">
+          <Cpu className="w-3.5 h-3.5 text-[var(--accent)]" />
+          <span>Claude • ChatGPT • Gemini • n8n</span>
+        </span>
       </div>
-      <p className="text-xs sm:text-sm text-[var(--text-muted)] mb-6 leading-relaxed">
-        특정 버전에 얽매이지 않고, 각 프론티어 AI의 <strong>고유한 강점(코딩 정밀도, 심층 추론, 초대용량 컨텍스트)</strong>을 파악하여 개발 라이프사이클 적재적소에 결합해 최상의 생산성을 발휘합니다.
+
+      <p className="text-xs sm:text-sm text-[var(--text-muted)] mb-5 leading-relaxed">
+        AI를 맹목적으로 복사하지 않고, <strong>각 AI 도구의 고유한 특성(코드 품질, 추론력, 초대용량 문맥, 업무 자동화)</strong>을 분업화하여 개발 사이클 속도를 3배 이상 단축합니다.
       </p>
 
-      {/* 3-Column: 특성별 멀티 LLM 실무 매트릭스 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-6">
-        {/* Card 1: Anthropic Claude */}
-        <div className="editorial-card p-6 sm:p-7 rounded-3xl border border-[var(--border-subtle)] flex flex-col justify-between hover:border-[var(--accent-border)] transition-all duration-200">
-          <div>
-            <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[var(--border-subtle)]">
-              <div className="flex items-center gap-2.5">
-                <span className="w-8 h-8 rounded-lg accent-pill flex items-center justify-center font-bold text-xs shrink-0 shadow-xs font-mono">
-                  CLD
-                </span>
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-[var(--text-heading)]">Anthropic Claude</h3>
-                  <div className="text-[11px] text-[var(--text-muted)] font-medium">코딩 정밀도 & 아키텍처 리팩토링 특화</div>
+      {/* 4대 AI 특성별 실무 활용 카드 그리드 (단정한 editorial-card 디자인 통일) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5 mb-5">
+        {aiTools.map((tool, idx) => {
+          const Logo = tool.logo;
+
+          return (
+            <motion.div
+              key={idx}
+              whileHover={{ y: -3 }}
+              className="editorial-card p-5 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--border-strong)] bg-[var(--bg-card)] flex flex-col justify-between transition-all duration-200 hover:shadow-xs"
+            >
+              <div>
+                {/* Header: Logo + Name + Badge */}
+                <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-[var(--border-subtle)]">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-[var(--bg-muted)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0 p-1.5">
+                      <Logo className="w-5 h-5 object-contain" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-black text-[var(--text-heading)] leading-tight">
+                        {tool.name}
+                      </h3>
+                      <div className="text-[10px] text-[var(--text-muted)] font-medium">
+                        {tool.company}
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-[9px] px-1.5 py-0.5 rounded status-badge font-bold shrink-0">
+                    {tool.badge}
+                  </span>
                 </div>
-              </div>
-              <span className="text-[10px] px-2 py-0.5 rounded status-badge font-bold">Code Architecture</span>
-            </div>
 
-            <div className="space-y-2.5 text-xs text-[var(--text-body)]">
-              <div>
-                <span className="font-bold text-[var(--text-heading)] block mb-0.5">1. 컴포넌트 구조화 & 클린 코드 리팩토링</span>
-                <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">
-                  스프링 백엔드 및 React/DevExtreme 화면의 복잡한 컴포넌트 구조를 결합도가 낮고 재사용성이 높은 모듈형 아키텍처로 리팩토링합니다.
-                </p>
-              </div>
-              <div>
-                <span className="font-bold text-[var(--text-heading)] block mb-0.5">2. CLI 터미널 에이전트 다중 파일 협업</span>
-                <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">
-                  터미널 환경에서 여러 소스 파일 간의 일관성을 유지하며 대규모 디버깅과 스타일 가이드 준수 작업을 능숙하게 주도합니다.
-                </p>
-              </div>
-              <div>
-                <span className="font-bold text-[var(--text-heading)] block mb-0.5">3. 정밀한 API 페이로드 & 인터페이스 검증</span>
-                <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">
-                  클라이언트-서버 간 통신 데이터 스펙과 RESTful API 명세를 엄밀하게 사전 검증하여 인터페이스 결함을 방지합니다.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex flex-wrap gap-1">
-            <span className="tech-tag text-[10px]">클린코드 리팩토링</span>
-            <span className="tech-tag text-[10px]">컴포넌트 아키텍처</span>
-            <span className="tech-tag text-[10px]">CLI 에이전트 협업</span>
-          </div>
-        </div>
-
-        {/* Card 2: OpenAI ChatGPT */}
-        <div className="editorial-card p-6 sm:p-7 rounded-3xl border border-[var(--border-subtle)] flex flex-col justify-between hover:border-[var(--accent-border)] transition-all duration-200">
-          <div>
-            <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[var(--border-subtle)]">
-              <div className="flex items-center gap-2.5">
-                <span className="w-8 h-8 rounded-lg accent-pill flex items-center justify-center font-bold text-xs shrink-0 shadow-xs font-mono">
-                  GPT
-                </span>
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-[var(--text-heading)]">OpenAI ChatGPT</h3>
-                  <div className="text-[11px] text-[var(--text-muted)] font-medium">심층 추론 & 비즈니스·SQL 최적화 특화</div>
+                {/* Role & 1-Liner Highlight */}
+                <div className="mb-3">
+                  <div className="text-[11px] font-bold text-[var(--accent)] mb-1 flex items-center gap-1">
+                    <Zap className="w-3 h-3" />
+                    <span>{tool.role}</span>
+                  </div>
+                  <p className="text-xs text-[var(--text-heading)] font-semibold leading-snug">
+                    {tool.oneLiner}
+                  </p>
                 </div>
-              </div>
-              <span className="text-[10px] px-2 py-0.5 rounded status-badge font-bold">Deep Reasoning</span>
-            </div>
 
-            <div className="space-y-2.5 text-xs text-[var(--text-body)]">
-              <div>
-                <span className="font-bold text-[var(--text-heading)] block mb-0.5">1. 복잡한 제조 공정 비즈니스 로직 모델링</span>
-                <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">
-                  Tank Mapping, 설비 Down Time 등 예외 조건이 많은 공정 규칙을 프롬프트 엔지니어링으로 체계적 알고리즘으로 구조화합니다.
-                </p>
+                {/* 3 Practical Bullet Points */}
+                <ul className="space-y-1.5 text-[11px] text-[var(--text-body)] leading-relaxed">
+                  {tool.points.map((pt, pIdx) => (
+                    <li key={pIdx} className="flex items-start gap-1.5">
+                      <span className="text-slate-400 dark:text-slate-500 font-bold shrink-0">•</span>
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div>
-                <span className="font-bold text-[var(--text-heading)] block mb-0.5">2. 대용량 SQL 실행 계획(Execution Plan) 튜닝</span>
-                <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">
-                  Oracle/MySQL의 복잡한 쿼리 Full Scan 병목을 분석하여 인덱스 재설계 및 옵티마이저 힌트 적용으로 응답 속도를 개선합니다.
-                </p>
-              </div>
-              <div>
-                <span className="font-bold text-[var(--text-heading)] block mb-0.5">3. 결함 예방 엣지 케이스 단위 테스트 도출</span>
-                <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">
-                  통신 끊김, 널 포인터, 경계값 등 사람이 놓치기 쉬운 엣지 케이스를 사전에 도출하여 JUnit/Mockito 테스트를 자동화합니다.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex flex-wrap gap-1">
-            <span className="tech-tag text-[10px]">심층 추론 모델링</span>
-            <span className="tech-tag text-[10px]">SQL 실행계획 튜닝</span>
-            <span className="tech-tag text-[10px]">엣지 테스트 자동화</span>
-          </div>
-        </div>
 
-        {/* Card 3: Google Gemini */}
-        <div className="editorial-card p-6 sm:p-7 rounded-3xl border border-[var(--border-subtle)] flex flex-col justify-between hover:border-[var(--accent-border)] transition-all duration-200">
-          <div>
-            <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[var(--border-subtle)]">
-              <div className="flex items-center gap-2.5">
-                <span className="w-8 h-8 rounded-lg accent-pill flex items-center justify-center font-bold text-xs shrink-0 shadow-xs font-mono">
-                  GEM
-                </span>
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-[var(--text-heading)]">Google Gemini</h3>
-                  <div className="text-[11px] text-[var(--text-muted)] font-medium">초대용량 컨텍스트 & 멀티모달 파이프라인 특화</div>
-                </div>
+              {/* Tag Footer */}
+              <div className="mt-4 pt-2.5 border-t border-[var(--border-subtle)] text-[10px] font-medium text-[var(--text-muted)]">
+                {tool.tag}
               </div>
-              <span className="text-[10px] px-2 py-0.5 rounded status-badge font-bold">Long Context</span>
-            </div>
-
-            <div className="space-y-2.5 text-xs text-[var(--text-body)]">
-              <div>
-                <span className="font-bold text-[var(--text-heading)] block mb-0.5">1. 대규모 프로젝트 소스 코드베이스 전수 분석</span>
-                <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">
-                  방대한 레거시 파일 전체를 컨텍스트로 주입하여 소스 간 복잡한 의존 관계를 한눈에 파악하고 리팩토링 포인트를 도출합니다.
-                </p>
-              </div>
-              <div>
-                <span className="font-bold text-[var(--text-heading)] block mb-0.5">2. 멀티모달 설비 통신 규격서 & 도면 파싱</span>
-                <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">
-                  수십 장 분량의 공장 설비 사양서(PDF) 및 PLC 프로토콜 다이어그램을 분석하여 통신 컨트롤러 인터페이스 스펙을 신속 추출합니다.
-                </p>
-              </div>
-              <div>
-                <span className="font-bold text-[var(--text-heading)] block mb-0.5">3. n8n 워크플로우 연동 사내 자동화 파이프라인</span>
-                <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">
-                  Gemini API를 n8n 워크플로우와 결합하여 사내 R&D 주간 보고서 및 AI 테크 트렌드 리포트를 자동으로 요약·전파합니다.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex flex-wrap gap-1">
-            <span className="tech-tag text-[10px]">초대용량 컨텍스트</span>
-            <span className="tech-tag text-[10px]">설비 사양서 파싱</span>
-            <span className="tech-tag text-[10px]">n8n 워크플로우 연계</span>
-          </div>
-        </div>
+            </motion.div>
+          );
+        })}
       </div>
 
-      {/* SDLC 단계별 AI 활용 성과 바 */}
-      <div className="p-6 sm:p-7 rounded-3xl bg-[var(--bg-muted)] border border-[var(--border-subtle)]">
-        <div className="text-xs font-bold text-[var(--text-heading)] uppercase tracking-wider mb-3 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
-          실제 개발 프로세스(SDLC) 단계별 AI 활용 효과
+      {/* 하단: 인간 엔지니어의 철저한 검증 원칙 */}
+      <div className="p-4 sm:p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+        <div className="flex items-start sm:items-center gap-3">
+          <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+            <ShieldCheck className="w-4 h-4" />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-[var(--text-heading)]">
+              원칙: "AI가 코드를 짜도, 책임과 아키텍처 설계는 엔지니어의 몫입니다"
+            </div>
+            <div className="text-[11px] text-[var(--text-muted)] mt-0.5">
+              도메인 설계 명세 선행 → 멀티 LLM 초안 구현 → 로컬 컴파일 & 단위 테스트 100% 통과 후 프로덕션 반영
+            </div>
+          </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-          <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]">
-            <div className="font-bold text-[var(--text-heading)] mb-1">01. 요구사항 설계</div>
-            <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">API 스펙 및 데이터 모델링 초안 신속 도출 (설계 착수 시간 50% 단축)</p>
-          </div>
-          <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]">
-            <div className="font-bold text-[var(--text-heading)] mb-1">02. 페어 코딩</div>
-            <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">보일러플레이트 자동화 및 핵심 로직 집중 (개발 생산성 3배 향상)</p>
-          </div>
-          <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]">
-            <div className="font-bold text-[var(--text-heading)] mb-1">03. 쿼리 & 엣지 방어</div>
-            <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">대용량 쿼리 튜닝 및 통신 단절 예외 방어 테스트 자동화 (결함 사전 차단)</p>
-          </div>
-          <div className="p-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]">
-            <div className="font-bold text-[var(--text-heading)] mb-1">04. 사내 자동화</div>
-            <p className="text-[var(--text-muted)] text-[11px] leading-relaxed">n8n + LLM API 연계 주간 보고서 및 테크 리서치 자동화 (반복 업무 제로화)</p>
-          </div>
+        <div className="shrink-0 flex items-center gap-2">
+          <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20 whitespace-nowrap">
+            생산성 3배 ↑ • 버그율 0건 유지
+          </span>
         </div>
       </div>
     </section>
