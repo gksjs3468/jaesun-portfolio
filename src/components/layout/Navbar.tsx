@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenC
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-8 h-15 flex items-center justify-between gap-3">
+      <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-8 h-15 flex items-center justify-between gap-3">
         {/* Brand / Title or Back Button */}
         <div className="flex items-center gap-3">
           {currentView !== 'main' ? (

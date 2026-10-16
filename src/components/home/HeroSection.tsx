@@ -39,7 +39,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
       <div className="pointer-events-none absolute -top-28 -left-20 w-[500px] h-[500px] bg-[var(--accent)]/10 rounded-full blur-3xl -z-10 animate-pulse duration-1000" />
       <div className="pointer-events-none absolute top-12 right-10 w-96 h-96 bg-[var(--accent)]/5 rounded-full blur-3xl -z-10" />
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto">
         <div className="border-b border-[var(--border-subtle)] pb-12">
           
           {/* Top High-Tech Status & Role Tag */}

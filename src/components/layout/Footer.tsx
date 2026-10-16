@@ -13,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
 
   return (
     <footer className="border-t border-[var(--border-subtle)] bg-[var(--bg-canvas)] py-10 px-4 sm:px-6 transition-colors">
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="w-5 h-5 rounded accent-btn font-black text-[10px] flex items-center justify-center shrink-0 shadow-2xs">
