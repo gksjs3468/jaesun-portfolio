@@ -116,7 +116,7 @@ export const App: React.FC = () => {
               <main className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-14 space-y-20 sm:space-y-28 w-full">
                 <CareerGlance onNavigate={handleNavigate} />
                 <SkillsSection />
-                <StrengthsSection />
+                <StrengthsSection onNavigate={handleNavigate} />
                 <ProjectsSection onNavigate={handleNavigate} />
                 <PrinciplesSection />
                 <AICompetencySection />
