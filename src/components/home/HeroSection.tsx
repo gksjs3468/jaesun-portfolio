@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Factory, Zap, Bot, MapPin, Mail, Check, Terminal, ShieldCheck } from 'lucide-react';
+import { Factory, Zap, Bot, MapPin, Mail, Check, Terminal, ShieldCheck, ExternalLink } from 'lucide-react';
+import { GithubIcon } from '../common/GithubIcon';
 import confetti from 'canvas-confetti';
 
 interface HeroSectionProps {
@@ -218,6 +219,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
                 <span className="text-[10px] text-slate-400">(복사)</span>
               )}
             </button>
+
+            {/* GitHub Repo Button */}
+            <a
+              href="https://github.com/gksjs3468/jaesun-portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-card)] hover:border-[var(--border-strong)] hover:text-[var(--text-heading)] whitespace-nowrap transition cursor-pointer font-medium"
+              title="포트폴리오 소스코드 GitHub 저장소 바로가기"
+            >
+              <GithubIcon className="w-3.5 h-3.5 text-[var(--accent)] shrink-0" />
+              <span>GitHub 소스코드</span>
+              <ExternalLink className="w-3 h-3 opacity-60" />
+            </a>
           </div>
 
           {/* Enterprise Clients & Collaborators Logo Strip */}
