@@ -6,11 +6,26 @@ import confetti from 'canvas-confetti';
 
 interface HeroSectionProps {
   onOpenContact: () => void;
+  onNavigate?: (view: 'main' | 'mes' | 'agent' | 'pop-demo', sectionId?: string) => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact, onNavigate }) => {
   const [emailCopied, setEmailCopied] = useState(false);
   const [keywordIndex, setKeywordIndex] = useState(0);
+
+  const scrollToTarget = (targetId: string) => {
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      // 부드러운 강조 애니메이션 (링 펄스)
+      el.classList.add('ring-2', 'ring-[var(--accent)]');
+      setTimeout(() => {
+        el.classList.remove('ring-2', 'ring-[var(--accent)]');
+      }, 1800);
+    } else if (onNavigate) {
+      onNavigate('main', targetId);
+    }
+  };
 
   const rotatingKeywords = [
     { highlight: '데이터 무결성 100%', prefix: '화학공정 현장 설비 통신 장애를 원천 방어하는' },
@@ -248,101 +263,143 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {/* 1. Rockwell Automation */}
-              <div className="group p-5 rounded-2xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition-all duration-200 flex flex-col justify-between shadow-xs hover:shadow-md">
+              {/* 1. Rockwell Automation -> 조광페인트 MES / 설비 I/F */}
+              <button
+                type="button"
+                onClick={() => scrollToTarget('career-8pin')}
+                className="group p-5 rounded-2xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition-all duration-200 flex flex-col justify-between shadow-xs hover:shadow-md cursor-pointer text-left w-full"
+                title="클릭하여 에잇핀 & 로크웰 PLC 연동 경력으로 이동"
+              >
                 <div className="w-full h-20 sm:h-22 rounded-xl bg-white p-3 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/2019_Logo_rgb_RA_Bug-LeftText_color.svg" alt="로크웰 오토메이션 로고" className="max-h-9 sm:max-h-10 w-auto max-w-[75%] object-contain" />
                 </div>
-                <div className="mt-3">
+                <div className="mt-3 w-full">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)]">로크웰 오토메이션</span>
+                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1">
+                      로크웰 오토메이션 <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded status-badge font-semibold shrink-0">글로벌 자동화</span>
                   </div>
                   <p className="text-[11px] text-[var(--text-muted)] mt-1 leading-relaxed">
                     Rockwell PLC 통신 인터페이스 연동 및 공정 데이터 실시간 계측
                   </p>
                 </div>
-              </div>
+              </button>
 
-              {/* 2. FactoryTalk */}
-              <div className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md">
+              {/* 2. FactoryTalk -> 조광페인트 MES */}
+              <button
+                type="button"
+                onClick={() => scrollToTarget('career-8pin')}
+                className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full"
+                title="클릭하여 에잇핀 & FactoryTalk MES 경력으로 이동"
+              >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-3 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/2019_Logo_FactoryTalk_rgb.svg" alt="FactoryTalk 로고" className="max-h-12 w-auto max-w-[88%] object-contain" />
                 </div>
-                <div className="mt-3">
+                <div className="mt-3 w-full">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)]">FactoryTalk</span>
+                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1">
+                      FactoryTalk <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded status-badge font-semibold shrink-0">산업용 MES</span>
                   </div>
                   <p className="text-[11px] text-[var(--text-muted)] mt-1 leading-relaxed">
                     로크웰 제조 실행 소프트웨어 연계 및 화학공정 실시간 데이터 통합
                   </p>
                 </div>
-              </div>
+              </button>
 
-              {/* 3. SK telecom */}
-              <div className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md">
+              {/* 3. SK telecom -> 모바일파크 SKT 운영 경력 */}
+              <button
+                type="button"
+                onClick={() => scrollToTarget('career-mobilepark')}
+                className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full"
+                title="클릭하여 모바일파크 SKT 개발·운영 경력으로 이동"
+              >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-1 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform overflow-hidden">
                   <img src="/sk_telecom_logo.png" alt="SK telecom 로고" className="h-full w-auto max-h-[92%] max-w-[95%] object-contain scale-140 sm:scale-150" />
                 </div>
-                <div className="mt-3">
+                <div className="mt-3 w-full">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)]">SK telecom</span>
+                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1">
+                      SK telecom <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded status-badge font-semibold shrink-0">대규모 통신계</span>
                   </div>
                   <p className="text-[11px] text-[var(--text-muted)] mt-1 leading-relaxed">
                     T-world 대규모 웹 문자(MPOMR) & 전사 사내 메신저(COMMA) 3.9년 개발·운영
                   </p>
                 </div>
-              </div>
+              </button>
 
-              {/* 4. 조광페인트 */}
-              <div className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md">
+              {/* 4. 조광페인트 -> 에잇핀 조광페인트 MES 경력 */}
+              <button
+                type="button"
+                onClick={() => scrollToTarget('career-8pin')}
+                className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full"
+                title="클릭하여 조광페인트 MES 생산 파트 경력으로 이동"
+              >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-3 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/ci_ko.png" alt="조광페인트 로고" className="max-h-12 w-auto max-w-[88%] object-contain" />
                 </div>
-                <div className="mt-3">
+                <div className="mt-3 w-full">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)]">조광페인트</span>
+                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1">
+                      조광페인트 <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded status-badge font-semibold shrink-0">페인트 스마트 MES</span>
                   </div>
                   <p className="text-[11px] text-[var(--text-muted)] mt-1 leading-relaxed">
                     화학공정 스마트팩토리 MES 생산관리 구축 및 현장 POP 생산 파트 전담
                   </p>
                 </div>
-              </div>
+              </button>
 
-              {/* 5. 에잇핀 (8PIN) */}
-              <div className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md">
+              {/* 5. 에잇핀 (8PIN) -> 에잇핀 경력 카드 */}
+              <button
+                type="button"
+                onClick={() => scrollToTarget('career-8pin')}
+                className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full ring-1 ring-[var(--accent-border)]/50"
+                title="클릭하여 에잇핀 재직 경력 상세로 이동"
+              >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-2.5 sm:p-3 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/logo-C41093Bk.webp" alt="에잇핀 (8PIN) 로고" className="max-h-11 sm:max-h-13 w-auto max-w-[88%] object-contain" />
                 </div>
-                <div className="mt-3">
+                <div className="mt-3 w-full">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)]">에잇핀 (8PIN)</span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded status-badge font-semibold shrink-0">스마트 제조 플랫폼</span>
+                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1">
+                      에잇핀 (8PIN) <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </span>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded status-badge font-semibold shrink-0">재직 중</span>
                   </div>
                   <p className="text-[11px] text-[var(--text-muted)] mt-1 leading-relaxed">
                     i-MOS MES 솔루션 고도화 및 8pin-print-agent 인쇄 큐 독립 개발
                   </p>
                 </div>
-              </div>
+              </button>
 
-              {/* 6. 모바일파크 */}
-              <div className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md">
+              {/* 6. 모바일파크 -> 모바일파크 경력 카드 */}
+              <button
+                type="button"
+                onClick={() => scrollToTarget('career-mobilepark')}
+                className="group p-4 rounded-xl bg-[var(--bg-muted)]/50 hover:bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-[var(--accent-border)] transition flex flex-col justify-between shadow-2xs hover:shadow-md cursor-pointer text-left w-full"
+                title="클릭하여 모바일파크 경력 상세로 이동"
+              >
                 <div className="w-full h-20 sm:h-22 rounded-lg bg-white p-2 sm:p-2.5 flex items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-2xs group-hover:scale-[1.02] transition-transform">
                   <img src="/mobilepark_logo3.png" alt="모바일파크 로고" className="max-h-12 sm:max-h-14 w-auto max-w-[90%] object-contain" />
                 </div>
-                <div className="mt-3">
+                <div className="mt-3 w-full">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)]">모바일파크</span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded status-badge font-semibold shrink-0">통신 SI & 플랫폼</span>
+                    <span className="text-xs sm:text-sm font-bold text-[var(--text-heading)] group-hover:text-[var(--accent)] transition-colors flex items-center gap-1">
+                      모바일파크 <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </span>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded status-badge font-semibold shrink-0">3.9년 운영</span>
                   </div>
                   <p className="text-[11px] text-[var(--text-muted)] mt-1 leading-relaxed">
                     SKT 핵심 가입자 서비스 및 엔터프라이즈 솔루션 개발·3.9년 장기 운영
                   </p>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
         </div>

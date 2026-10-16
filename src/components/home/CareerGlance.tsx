@@ -23,7 +23,7 @@ export const CareerGlance: React.FC<CareerGlanceProps> = ({ onNavigate }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Company 1: 에잇핀 */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-muted)] border border-[var(--border-subtle)] flex flex-col justify-between hover:border-[var(--accent-border)] transition-all duration-200">
+        <div id="career-8pin" className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-muted)] border border-[var(--border-subtle)] flex flex-col justify-between hover:border-[var(--accent-border)] transition-all duration-200 scroll-mt-24">
           <div>
             <div className="flex items-center justify-between gap-2 mb-2">
               <span className="font-black text-base text-[var(--text-heading)]">에잇핀 (8PIN)</span>
@@ -72,7 +72,7 @@ export const CareerGlance: React.FC<CareerGlanceProps> = ({ onNavigate }) => {
         </div>
 
         {/* Company 2: 모바일파크 */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-muted)] border border-[var(--border-subtle)] flex flex-col justify-between hover:border-[var(--accent-border)] transition-all duration-200">
+        <div id="career-mobilepark" className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-muted)] border border-[var(--border-subtle)] flex flex-col justify-between hover:border-[var(--accent-border)] transition-all duration-200 scroll-mt-24">
           <div>
             <div className="flex items-center justify-between gap-2 mb-2">
               <span className="font-black text-base text-[var(--text-heading)]">모바일파크 (Mobile Park)</span>

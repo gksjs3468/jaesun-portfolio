@@ -108,7 +108,10 @@ export const App: React.FC = () => {
               transition={{ duration: 0.28 }}
               className="pt-16 sm:pt-20"
             >
-              <HeroSection onOpenContact={() => setIsContactOpen(true)} />
+              <HeroSection
+                onOpenContact={() => setIsContactOpen(true)}
+                onNavigate={handleNavigate}
+              />
 
               <main className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-14 space-y-20 sm:space-y-28 w-full">
                 <CareerGlance onNavigate={handleNavigate} />
