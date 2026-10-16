@@ -225,12 +225,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
               href="https://github.com/gksjs3468/jaesun-portfolio"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-card)] hover:border-[var(--border-strong)] hover:text-[var(--text-heading)] whitespace-nowrap transition cursor-pointer font-medium"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-black text-white dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-100 border border-slate-700/60 shadow-xs hover:shadow-md whitespace-nowrap transition-all duration-200 cursor-pointer font-semibold group"
               title="포트폴리오 소스코드 GitHub 저장소 바로가기"
             >
-              <GithubIcon className="w-3.5 h-3.5 text-[var(--accent)] shrink-0" />
+              <GithubIcon className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
               <span>GitHub 소스코드</span>
-              <ExternalLink className="w-3 h-3 opacity-60" />
+              <ExternalLink className="w-3 h-3 opacity-70 group-hover:opacity-100 transition-opacity" />
             </a>
           </div>
 

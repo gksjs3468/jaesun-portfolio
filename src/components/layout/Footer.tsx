@@ -31,10 +31,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             href="https://github.com/gksjs3468/jaesun-portfolio"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-[var(--border-subtle)] hover:border-[var(--border-strong)] text-xs text-[var(--text-body)] transition flex items-center gap-1.5 whitespace-nowrap bg-[var(--bg-card)] hover:text-[var(--text-heading)]"
+            className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-black text-white dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap shadow-2xs group"
             title="GitHub 소스코드 저장소"
           >
-            <GithubIcon className="w-3.5 h-3.5 text-[var(--accent)]" />
+            <GithubIcon className="w-3.5 h-3.5 text-white group-hover:scale-110 transition-transform" />
             <span>GitHub</span>
           </a>
           <button

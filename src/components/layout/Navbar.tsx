@@ -97,11 +97,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, onOpenC
             href="https://github.com/gksjs3468/jaesun-portfolio"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--bg-muted)] transition"
+            className="p-2 rounded-lg text-slate-700 hover:text-black dark:text-slate-300 dark:hover:text-white hover:bg-[var(--bg-muted)] transition-colors group"
             title="포트폴리오 소스코드 (GitHub)"
             aria-label="GitHub 저장소 바로가기"
           >
-            <GithubIcon className="w-4 h-4" />
+            <GithubIcon className="w-4 h-4 group-hover:scale-115 transition-transform" />
           </a>
 
           {/* Print Button */}
